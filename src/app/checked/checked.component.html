@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row ">
+    <div class="col">
+      <img src="https://s3.amazonaws.com/thinkific/file_uploads/121670/attachments/842/4db/e44/sale.jpg" style="height: 200px;width: 100%;">
+    </div>
+  </div>
+  <div class="style-{{hide3}}">
+      <h3 class="mb-2">List of Orders</h3>
+     
+      <div class="row text-white bg-dark ">
+        <div class="col-3">Name</div>
+        <div class="col-3">City</div>
+        <div class="col-2">Address</div>
+        <div class="col-2">Amount</div>
+        <div class="col-2">Items</div>
+      </div>
+      <div class="row border-buttom" *ngFor="let myorder of myorders">
+        <div class="col-3">{{myorder.name}}</div>
+        <div class="col-3">{{myorder.city}}</div>
+        <div class="col-2">{{myorder.address}}</div>
+        <div class="col-2">{{myorder.totalPrice}}</div>
+        <div class="col-2">{{myorder.items}}</div>
+      </div>
+    </div>
+  <div class="style-{{hide2}}">
+    <h4 class="text-center">Thank You</h4>
+    <p class="text-center"> We recieved your order and will process it within next 24 hours!</p>
+  </div>
+<div class="style-{{hide1}}">
+  <div class="border mt-0">
+    <h3 class="text-center mb-3">Summary of your Order</h3>
+    <p class="text-center mb-0"> You order has {{items.length}} items</p>
+    <div class="row text-center bg-secondary mx-4 mt-0">
+      <div class="col-4">Name</div>
+      <div class="col-4">Quantity</div>
+      <div class="col-4">value</div>
+    </div>
+    <div class="row text-center border-buttom mx-4" *ngFor="let order of orders">
+      <div class="col-4">{{order.name}}</div>
+      <div class="col-4">{{order.count}}</div>
+      <div class="col-4">{{order.price}}</div>
+    </div>
+  </div>
+  <h3 class="text-center my-4">Delivery Details</h3>
+    <div class="row">Name
+      <input type="text" [(ngModel)]="name" class="form-control">
+    </div>
+    <div class="row">Address
+      <input type="text" [(ngModel)]="add1" class="form-control" placeholder="line1">
+      <input type="text" [(ngModel)]="add2" class="form-control" placeholder="line2">
+    </div>
+
+<div class="row">City
+  <input type="text" [(ngModel)]="city" class="form-control">
+</div>
+<button class="btn btn-success mt-2" (click)="submit()">Submit</button>
+</div>
+</div>

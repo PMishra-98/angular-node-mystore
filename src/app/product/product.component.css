@@ -1,0 +1,14 @@
+.bloc {
+  display: inline-block;
+  vertical-align: hidden;
+  overflow: hidden;
+border-right: none;
+}
+
+.bloc select {
+  padding: 10px;
+  margin: -5px -20px -5px -5px;
+width: 250px;
+
+}
+

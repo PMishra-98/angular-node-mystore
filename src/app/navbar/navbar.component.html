@@ -1,0 +1,41 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<nav class="navbar navbar-expand navbar-light bg-secondary" >
+  <a class="navbar-brand text-white"  routerLink="/products" routerLinkActive="active">MyStore</a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngFor="let l1 of navlinks2">
+        <a class="nav-link" routerLink="/products/{{l1.link}}" routerLinkActive="{{l1.active}}" >
+          {{l1.txt}}
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle">Footwear
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+          <a class="dropdown-item" routerLink="{{l1.link}}" routerLinkActive="active" *ngFor="let l1 of footwear">{{l1.txt}}</a>
+         </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item" *ngFor="let l1 of navlinks1">
+          <a class="nav-link" routerLink={{l1.link}} routerLinkActive={{l1.active}} *ngIf="!email">
+            {{l1.txt}}
+          </a>
+        </li>
+        <li class="nav-item dropdown" *ngIf="email">
+          <a class="nav-link dropdown-toggle">{{email}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+            <a class="dropdown-item" routerLink="{{l1.link}}" routerLinkActive="active" *ngFor="let l1 of navlinks1">{{l1.txt}}</a>
+           </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cart" routerLinkActive="active">
+            Cart <span class="badge badge-success">{{total}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+</nav>
+<router-outlet></router-outlet>

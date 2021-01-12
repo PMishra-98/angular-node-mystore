@@ -1,0 +1,58 @@
+<div class="container">
+   <div class="row">
+  <div class="col">
+    <img src="https://s3.amazonaws.com/thinkific/file_uploads/121670/attachments/842/4db/e44/sale.jpg" style="height: 200px;width: 100%;">
+  </div>
+</div>
+  <div class="row">
+    <div class="col-2 mr-4">
+     <div class="bloc ">
+      <select  size="9" id="multiple" >
+        <option class="border form-control" (click)="filterData('All')" selected>All</option>
+        <option class="border form-control" (click)="filterData(arr)" value="{{arr}}" *ngFor="let arr of typeArray;index as i">{{arr}}</option>
+      </select>
+     </div>
+    </div>
+    <div class="col-9 ml-4">
+      <div class="row" >
+        <div class="col-4 mb-4" *ngFor="let d of details;index as i">
+            <div class="card" >
+              <img src="{{d.imgLink}}" style="height: 250px;" >
+           <h5 class="ml-3 mt-2">  {{d.name}}</h5>
+         <div class="text-muted ml-3 mb-3">
+          Rs. {{d.price}}<br>
+          <div class="text-truncate">{{d.description}}</div>
+         </div>
+          <div *ngIf="!d.add"><button class=" btn btn-success form-control" (click)="addToCart(i)">Add to cart</button></div>
+          <div *ngIf="d.add"><button class=" btn btn-warning form-control" (click)="removeToCart(d.prodId,i)">Remove from cart</button></div>
+        </div>
+        </div>
+      </div>
+    </div>
+   <!-- <div class="col-4">
+      <div class="row" *ngIf="!item">
+        <div class="col" >Choose a product!</div>
+      </div>
+      <div class="row mx-4 mt-3" *ngIf="item">
+        <div class="col">
+          <div *ngIf="role==='Admin'" class="mb-2">
+            <button class=" btn btn-secondary ml-2" (click)="edit()">Edit Product</button>
+            <button class="btn btn-secondary ml-1" (click)="delete()" >Delete Product</button>
+          </div>
+          <img src="{{item.img}}">
+           <h4> {{item.title}}</h4>
+           <div *ngFor="let d of item.desc">
+             {{d}}
+           </div>
+           <h5>Items in product</h5>
+           <div *ngFor="let ingre of item.ingredients">
+             - {{ingre.ingName}}: {{ingre.qty}}
+           </div>
+           <div *ngIf="role==='User'">
+            <button class="btn btn-success text-white" (click)="addToCart()">Add To Cart</button>
+           </div>
+        </div>
+      </div>
+     </div>-->
+  </div>
+</div>
